@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoàng Thích | Info</title>
+  <meta
+    name="description"
+    content="Trang info cá nhân với nhạc nền, hiệu ứng động và các nút tương tác hiện đại."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="snow"></canvas>
+
+  <div id="loader" class="loader">
+    <div class="loader__content">
+      <p class="loader__eyebrow">HỆ THỐNG THÔNG TIN</p>
+      <h1>Hoàng Thích</h1>
+      <p class="loader__text">Bật nhạc, mở giao diện và vào trang cá nhân.</p>
+      <button id="enter-button" class="primary-button" type="button">
+        Vào trang
+      </button>
+    </div>
+  </div>
+
+  <div class="ambient ambient--one"></div>
+  <div class="ambient ambient--two"></div>
+  <div class="anime-sky"></div>
+  <div class="anime-glow anime-glow--left"></div>
+  <div class="anime-glow anime-glow--right"></div>
+  <div class="light-flurries"></div>
+
+  <main class="shell">
+    <section class="hero-card">
+      <div class="hero-card__top">
+        <span class="pill">
+          <i class="fa-solid fa-sparkles"></i>
+          Không gian cá nhân
+        </span>
+        <div class="quick-actions">
+          <button id="music-toggle" class="icon-button" type="button" aria-label="Bật tắt nhạc">
+            <i class="fa-solid fa-volume-high"></i>
+          </button>
+          <button id="theme-toggle" class="icon-button" type="button" aria-label="Đổi giao diện">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="profile-row">
+        <div class="avatar-wrap">
+          <img
+            class="avatar"
+            src="avatar.jpg"
+            alt="Avatar Hoàng Thích"
+          >
+          <span id="presence-dot" class="presence-dot"></span>
+        </div>
+
+        <div class="profile-copy">
+          <p class="eyebrow">Thành phố Hồ Chí Minh</p>
+          <h1>Hoàng Thích</h1>
+          <p id="typing-text" class="typing-text"></p>
+          <div class="meta-row">
+            <span class="meta-chip">
+              <i class="fa-brands fa-discord"></i>
+              <span id="discord-status">Đang tải trạng thái...</span>
+            </span>
+            <span class="meta-chip">
+              <i class="fa-solid fa-eye"></i>
+              <span><span id="view-count">0</span> lượt ghé</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-card__label">Giờ địa phương</span>
+          <strong id="clock">00:00:00</strong>
+          <small id="date-text">Thứ Năm, 30/04/2026</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-card__label">Đang phát</span>
+          <strong id="music-state">Có chắc yêu là đây</strong>
+          <small id="music-detail">Chờ file remix local</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-card__label">Pin thiết bị</span>
+          <strong id="battery-text">Đang đo...</strong>
+          <small>Tự động đọc từ thiết bị nếu được hỗ trợ</small>
+        </article>
+      </div>
+
+      <section class="panel">
+        <div class="panel__head">
+          <div>
+            <p class="panel__eyebrow">Điểm nhấn</p>
+            <h2>Không chỉ đẹp, còn có ích</h2>
+          </div>
+          <button id="copy-discord" class="ghost-button" type="button">
+            <i class="fa-regular fa-copy"></i>
+            Sao chép Discord ID
+          </button>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="fa-solid fa-wave-square"></i>
+            <div>
+              <strong>Remix Việt</strong>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-bolt"></i>
+            <div>
+              <strong>Realtime</strong>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div>
+              <strong>Hiệu ứng đẹp</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel transfer-panel">
+        <div class="panel__head">
+          <div>
+            <p class="panel__eyebrow">Chuyển khoản</p>
+            <h2>Quét mã hoặc sao chép thông tin</h2>
+          </div>
+          <button id="copy-bank" class="ghost-button" type="button">
+            <i class="fa-regular fa-copy"></i>
+            Sao chép STK
+          </button>
+        </div>
+
+        <div class="transfer-layout">
+          <div class="qr-card">
+            <img class="qr-image" src="bank-qr.jpg" alt="Mã QR chuyển khoản Techcombank">
+          </div>
+
+          <div class="bank-details">
+            <div class="bank-row">
+              <i class="fa-solid fa-building-columns"></i>
+              <span class="bank-label">Ngân hàng</span>
+              <strong>Techcombank</strong>
+            </div>
+            <div class="bank-row">
+              <i class="fa-solid fa-user"></i>
+              <span class="bank-label">Chủ tài khoản</span>
+              <strong>NGUYEN HOANG THICH</strong>
+            </div>
+            <div class="bank-row">
+              <i class="fa-solid fa-credit-card"></i>
+              <span class="bank-label">Số tài khoản</span>
+              <strong id="bank-account">3037 3736 840</strong>
+            </div>
+            <div class="bank-actions">
+              <button id="copy-bank-name" class="ghost-button" type="button">
+                <i class="fa-regular fa-copy"></i>
+                Tên
+              </button>
+              <button id="copy-bank-owner" class="ghost-button" type="button">
+                <i class="fa-regular fa-copy"></i>
+                Chủ TK
+              </button>
+              <button id="copy-bank-full" class="ghost-button" type="button">
+                <i class="fa-regular fa-copy"></i>
+                Full
+              </button>
+            </div>
+            <div class="bank-row bank-row--wide">
+              <i class="fa-solid fa-qrcode"></i>
+              <span class="bank-label">Quét nhanh</span>
+              <strong>VietQR Techcombank</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer-row">
+        <div class="socials">
+          <a href="https://discord.com/users/1107883033941512292" target="_blank" rel="noreferrer" aria-label="Discord">
+            <i class="fa-brands fa-discord"></i>
+          </a>
+          <a href="https://www.facebook.com/hoang.thich.443407" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/hoang_thich1506?igsh=MWM5cmhtdThxYTF6ZQ%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@nht_1_5_06?is_from_webapp=1&sender_device=pc" target="_blank" rel="noreferrer" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+
+        <label class="volume-control" for="volume-slider">
+          <i class="fa-solid fa-sliders"></i>
+          <input id="volume-slider" type="range" min="0" max="100" value="45">
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <audio id="music" loop preload="none"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
